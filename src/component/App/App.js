@@ -23,12 +23,14 @@ class App extends Component {
   };
 
   componentDidUpdate(prevProps, prevState) {
-    const { findWord } = this.state;
+    const { items, findWord } = this.state;
 
-    window.scrollTo({
-      top: document.body.scrollHeight,
-      behavior: 'smooth',
-    });
+    if (prevState.items.length !== items.length) {
+      window.scrollTo({
+        top: document.body.scrollHeight,
+        behavior: 'smooth',
+      });
+    }
 
     if (prevState.findWord === findWord) return;
 
