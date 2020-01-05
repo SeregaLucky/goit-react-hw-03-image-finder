@@ -7,10 +7,9 @@ import styles from './PhotoCard.module.css';
 /*
  * COMPONENT
  */
-const PhotoCard = ({
-  item: { id, webformatURL, likes, views, comments, downloads },
-  onOpenModal,
-}) => {
+const PhotoCard = ({ item, onOpenModal }) => {
+  const { id, webformatURL, likes, views, comments, downloads } = item;
+
   return (
     <div className={styles.photoCard}>
       <img src={webformatURL} alt="" />

@@ -4,9 +4,9 @@ import { createPortal } from 'react-dom';
 import T from 'prop-types';
 /* import - CSS */
 import styles from './Modal.module.css';
-/* import - COMPONENT */
 
 const MODAL_ROOT = document.querySelector('#modal-root');
+
 /*
  * COMPONENT
  */

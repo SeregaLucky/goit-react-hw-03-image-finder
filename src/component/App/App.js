@@ -6,7 +6,7 @@ import styles from './App.module.css';
 import SearchForm from '../SearchForm/SearchForm';
 import Gallery from '../Gallery/Gallery';
 import Modal from '../Modal/Modal';
-/* import - other */
+/* import - api */
 import fetchPhotos from '../../servises/api';
 
 /*
