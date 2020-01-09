@@ -19,6 +19,7 @@ class App extends Component {
     pageNumber: 1,
     isModalOpen: false,
     idClickPhoto: '',
+    isLoading: false,
     error: null,
   };
 
@@ -38,6 +39,8 @@ class App extends Component {
   }
 
   fetchGetPhotos = () => {
+    this.setState({ isLoading: true });
+
     fetchPhotos(this.state.findWord, this.state.pageNumber)
       .then(hits =>
         this.setState(state => ({
@@ -45,7 +48,8 @@ class App extends Component {
           pageNumber: state.pageNumber + 1,
         })),
       )
-      .catch(error => this.setState({ error }));
+      .catch(error => this.setState({ error }))
+      .finally(() => this.setState({ isLoading: false }));
   };
 
   resetOldStateAndWriteNewData = findWord => {
@@ -67,7 +71,7 @@ class App extends Component {
   };
 
   render() {
-    const { items, isModalOpen, idClickPhoto, error } = this.state;
+    const { items, isModalOpen, idClickPhoto, isLoading, error } = this.state;
 
     const needItem = items.filter(item => item.id === idClickPhoto);
 
@@ -90,6 +94,7 @@ class App extends Component {
             type="button"
             onClick={this.fetchGetPhotos}
             className={styles.button}
+            disabled={isLoading}
           >
             Load more
           </button>
