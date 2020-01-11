@@ -10,6 +10,8 @@ import styles from './PhotoCard.module.css';
 const PhotoCard = ({ item, onOpenModal }) => {
   const { id, webformatURL, likes, views, comments, downloads } = item;
 
+  const clickShowModal = () => onOpenModal(id);
+
   return (
     <div className={styles.photoCard}>
       <img src={webformatURL} alt="" />
@@ -37,7 +39,7 @@ const PhotoCard = ({ item, onOpenModal }) => {
       <button
         type="button"
         className={styles.fullscreenButton}
-        onClick={() => onOpenModal(id)}
+        onClick={clickShowModal}
       >
         <i className="material-icons">zoom_out_map</i>
       </button>

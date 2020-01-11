@@ -16,9 +16,7 @@ class SearchForm extends Component {
     query: '',
   };
 
-  handleChange = e => {
-    this.setState({ query: e.target.value });
-  };
+  handleChange = e => this.setState({ query: e.target.value });
 
   handleSubmit = e => {
     e.preventDefault();
